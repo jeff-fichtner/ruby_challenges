@@ -5,15 +5,15 @@ def ask question
 		
 		if (reply == 'yes' || reply == 'no')
 			if reply == 'yes'
-				answer = true
+				return true
 			else
-				answer = false
+				return false
 			end
-			break
 		else
 			puts 'Please answer "yes" or "no".'
 		end
 	end
-
-	answer # This is what we return (true or false).
 end
+
+answer = ask 'yes or no'
+p answer
