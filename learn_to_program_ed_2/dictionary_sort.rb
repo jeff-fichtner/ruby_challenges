@@ -17,3 +17,10 @@ def recursive_sort unsorted_array, sorted_array
 	
 	sorted_array
 end
+
+# dictionary sort
+
+# downcase to evaluate
+# upcase to evaluate against it's own duplicates 
+# 	(if adding that feature, uppercase first, lowercase last)
+# separate flow from non-uppercase?
