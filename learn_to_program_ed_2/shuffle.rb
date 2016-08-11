@@ -5,15 +5,30 @@ def sort some_array
 end
 
 def recursive_sort unsorted_array, sorted_array
-	last_index = unsorted_array.length - 1
-	
+
 	until unsorted_array.empty? == true
-		(0..last_index).each do |i|
-			if i == unsorted_array.index(unsorted_array.min)
-				sorted_array << unsorted_array.delete_at(i)
+		rand_numb = rand(unsorted_array.length)
+			if unsorted_array[rand_numb] != nil
+				sorted_array << unsorted_array.delete_at(rand_numb)
 			end
-		end
+		
 	end
 	
 	sorted_array
 end
+
+unscrambled = ['a','b','c','d','e','f']
+p unscrambled
+scrambled = sort(unscrambled)
+p scrambled
+
+
+
+# loop until no letters in unscrambled array
+	
+# 	make a random number:
+# 		if number as index in array is valid
+# 			delete letter at that index, place in new array
+# 		end if
+
+# end loop
