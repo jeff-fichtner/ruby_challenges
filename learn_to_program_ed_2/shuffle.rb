@@ -4,22 +4,22 @@ def sort some_array
 	recursive_sort(some_array, [])
 end
 
-def recursive_sort unsorted_array, sorted_array
+def recursive_sort unscrambled_array, scrambled_array
 
-	until unsorted_array.empty? == true
-		rand_numb = rand(unsorted_array.length)
-			if unsorted_array[rand_numb] != nil
-				sorted_array << unsorted_array.delete_at(rand_numb)
+	until unscrambled_array.empty? == true
+		rand_numb = rand(unscrambled_array.length)
+			if unscrambled_array[rand_numb] != nil
+				scrambled_array << unscrambled_array.delete_at(rand_numb)
 			end
 		
 	end
 	
-	sorted_array
+	scrambled_array
 end
 
 unscrambled = ['a','b','c','d','e','f']
 p unscrambled
-scrambled = sort(unscrambled)
+scrambled = sort unscrambled
 p scrambled
 
 
