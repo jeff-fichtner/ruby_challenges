@@ -20,15 +20,51 @@ def english_number number
 	# write and left...get it? :)
 
 	left = number
-	write = left/1000  # How many thousands left?
-	left = left - write*1000  # Subtract off those thousands.
+
+	# trillions
+	write = left/1000000000000
+	left = left - write*1000000000000
 
 	if write > 0
-		# Now here's the recursion:
+		trillions = english_number write
+		num_string = num_string + trillions + ' trillion'
+		if left > 0 
+			num_string = num_string + ' '
+		end
+	end
+
+	# billions
+	write = left/1000000000
+	left = left - write*1000000000
+
+	if write > 0
+		billions = english_number write
+		num_string = num_string + billions + ' billion'
+		if left > 0 
+			num_string = num_string + ' '
+		end
+	end
+
+	# millions
+	write = left/1000000
+	left = left - write*1000000
+
+	if write > 0
+		millions = english_number write
+		num_string = num_string + millions + ' million'
+		if left > 0 
+			num_string = num_string + ' '
+		end
+	end
+
+	# thousands
+	write = left/1000
+	left = left - write*1000
+
+	if write > 0
 		thousands = english_number write
 		num_string = num_string + thousands + ' thousand'
 		if left > 0
-			# So we don't write 'two thousandfifty-one'... 
 			num_string = num_string + ' '
 		end
 	end
@@ -90,17 +126,18 @@ def english_number number
 end
 
 
-# puts english_number(0)
-# puts english_number(9)
-# puts english_number(10)
-# puts english_number(11)
-# puts english_number(17)
-# puts english_number(32)
-# puts english_number(88)
-# puts english_number(99)
-# puts english_number(100)
-# puts english_number(101)
-# puts english_number(234)
+puts english_number(0)
+puts english_number(9)
+puts english_number(10)
+puts english_number(11)
+puts english_number(17)
+puts english_number(32)
+puts english_number(88)
+puts english_number(99)
+puts english_number(100)
+puts english_number(101)
+puts english_number(234)
 puts english_number(3211)
 puts english_number(999999)
 puts english_number(1000000000000)
+puts english_number(330938572934039)
