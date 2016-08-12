@@ -20,6 +20,20 @@ def english_number number
 	# write and left...get it? :)
 
 	left = number
+	write = left/1000  # How many thousands left?
+	left = left - write*1000  # Subtract off those thousands.
+
+	if write > 0
+		# Now here's the recursion:
+		thousands = english_number write
+		num_string = num_string + thousands + ' thousand'
+		if left > 0
+			# So we don't write 'two thousandfifty-one'... 
+			num_string = num_string + ' '
+		end
+	end
+
+
 	write = left/100  # How many hundreds left?
 	left = left - write*100  # Subtract off those hundreds.
 
@@ -32,6 +46,7 @@ def english_number number
 			num_string = num_string + ' '
 		end
 	end
+
 
 	write = left/10  # How many tens left?
 	left = left - write*10  # Subtract off those tens.
@@ -59,7 +74,8 @@ def english_number number
 		end
 	end
 
-	write = left  # How many ones left to write out? 
+
+	write = left  # How many ones left to write out? (left/1)
 	left = 0  # Subtract off those ones.
 
 	if write > 0
@@ -68,22 +84,23 @@ def english_number number
 		# 'four', not 'three'.
 	end
 
+
 	# Now we just return "num_string"...
 	num_string
 end
 
 
-puts english_number(0)
-puts english_number(9)
-puts english_number(10)
-puts english_number(11)
-puts english_number(17)
-puts english_number(32)
-puts english_number(88)
-puts english_number(99)
-puts english_number(100)
-puts english_number(101)
-puts english_number(234)
+# puts english_number(0)
+# puts english_number(9)
+# puts english_number(10)
+# puts english_number(11)
+# puts english_number(17)
+# puts english_number(32)
+# puts english_number(88)
+# puts english_number(99)
+# puts english_number(100)
+# puts english_number(101)
+# puts english_number(234)
 puts english_number(3211)
 puts english_number(999999)
 puts english_number(1000000000000)
