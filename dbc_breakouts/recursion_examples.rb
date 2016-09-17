@@ -1,5 +1,5 @@
 # reverse iteration
-def reverse_iteratively(word)
+def reverse_iteratively word
   reversed_word = []
 	last_index = word.length - 1
 
@@ -11,7 +11,7 @@ def reverse_iteratively(word)
 end
 
 # palindrome iteration
-def palindrome_iteratively?(word)
+def palindrome_iteratively? word
 	last_index = word.length - 1
 
 	last_index.times do |i|
@@ -24,7 +24,7 @@ def palindrome_iteratively?(word)
 end
 
 # reverse recursion
-def reverse_recursively(word)
+def reverse_recursively word
 	return word if word.length <= 1
 
 	reversed_word = ""
@@ -35,7 +35,7 @@ def reverse_recursively(word)
 end
 
 # palindrome recursion
-def palindrome_recursively?(word)
+def palindrome_recursively? word
 	return true if word.length <= 1
 
 	first_letter = word[0]
@@ -45,6 +45,25 @@ def palindrome_recursively?(word)
 	first_letter == last_letter && palindrome_recursively?(rest_of_word)
 end
 
+#binary_search
+def binary_search number, array, start = 0, finish = array.length - 1
+  middle = (start + finish) / 2
+
+  return nil if start > finish
+  return middle if array[middle] == number
+
+  if number > array[middle]
+    start = middle + 1
+  else
+    finish = middle - 1
+  end
+
+  binary_search(number, array, start, finish)
+end
+
+
+# array = [4,6,9,12,15,17,20]
+# p binary_search(9, array)
 
 
 # non_palindrome = 'reverse'
